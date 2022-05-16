@@ -1,0 +1,39 @@
+header {
+    color: rgb(250, 247, 247);
+    background-color: black;
+}
+
+.search {
+    border: solid 2px black;
+}
+
+#artist-search {
+    font-style: bold;
+    font-size: 16px;
+}
+
+.music-container {
+    background-color: grey;
+    width: 50%;
+    min-width: 500px;
+    min-height: 350px;
+}
+
+.event-container {
+    background-color: rgb(6, 6, 6);
+    width: 50%;
+    min-width:500px;
+    min-height: 350px;
+}
+
+@media screen {
+    .event-container {
+        background-color: grey;
+        width: 100%;
+    }
+
+    .music-container {
+        background-color: rgb(2, 2, 2);
+        width: 100%;
+    }
+}
