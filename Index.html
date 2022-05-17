@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -19,28 +20,18 @@
       href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/1921593a71.js"
-      crossorigin="anonymous"
-    ></script>
+
+
     <link rel="stylesheet" href="./Assets/css/Style.css" />
-    <title>Document</title>
+    <title>Fan App</title>
   </head>
   <body>
-    <div class="row time-block">
-      <textarea
-        id="searchInput"
-        class="col-md-10 border border-dark"
-      ></textarea>
-      <button
-        id="searchBtn"
-        class="saveBtn col-md-1 border border-dark rounded-right"
-      >
-        <i class="fa-solid fa-floppy-disk"></i>
-      </button>
-    </div>
-    <div>
-      <iframe
+    <header class="d-flex w-100 justify-content-center">
+      <h1 class="display-3">Fan App</h1>
+    </header>
+
+    <div id="" class="d-flex flex-column align-items-center"><label id="artist-search" class="d-flex"></label><input class="search">Enter Artist Here</input></div>
+    <div class="d-flex flex-column align-items-center music-container"><iframe
         id="spotifyWidget"
         style="border-radius: 12px"
         width="100%"
@@ -49,19 +40,116 @@
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
       ></iframe>
-    </div>
+		<ul>
+			<li id="song1"><div><label></label><button>play</button></div></li>
+			<li id="song2"><div><label></label><button>play</button></div></li>
+			<li id="song3"><div><label></label><button>play</button></div></li>
+			<li id="song4" ><div><label></label><button>play</button></div></li>
+			<li id="song5"><div><label></label><button>play</button></div></li>
+		</ul>
+	</div>
+    <div class="d-flex flex-column align-items-center event-container"><section>
+		<ol>
+			<li id="event1"><div><label></label><button>play</button></div></li>
+			<li id="event2"><div><label></label><button>play</button></div></li>
+			<li id="event3"><div><label></label><button>play</button></div></li>
+			<li id="event4"><div><label></label><button>play</button></div></li>
+			<li id="event5"><div><label></label><button>play</button></div></li>
+		</ul>
+	</section></div>
+
+
+	<!-- <a class="bit-widget-initializer visible"
+    
+	data-artist-name="id_11577570"
+	
+	data-background-color="#ffffff"
+	data-separator-color="#DDDDDD"
+	data-text-color="#424242"
+	data-font="Helvetica"
+	data-auto-style="true"
+	
+	data-display-local-dates="true"
+	data-local-dates-position="tab"
+	data-display-past-dates="true"
+	data-display-details="false"
+	data-display-lineup="false"
+	data-display-start-time="false"
+	data-social-share-icon="true"
+	data-display-limit="all"
+	
+	data-date-format="MMM. D, YYYY"
+	data-date-orientation="horizontal"
+	data-date-border-color="#08C3BA"
+	data-date-border-width="1px"
+	data-date-border-radius="10px"
+	
+	data-event-ticket-cta-size="medium"
+	data-event-ticket-text="TICKETS"
+	data-event-ticket-icon="false"
+	data-event-ticket-cta-text-color="#FFFFFF"
+	data-event-ticket-cta-bg-color="#08C3BA"
+	data-event-ticket-cta-border-color="#08C3BA"
+	data-event-ticket-cta-border-width="0px"
+	data-event-ticket-cta-border-radius="4px"
+	
+	data-sold-out-button-text-color="#FFFFFF"
+	data-sold-out-button-background-color="#9B9B9B"
+	data-sold-out-button-border-color="#08C3BA"
+	data-sold-out-button-clickable="true"
+	
+	data-event-rsvp-position="left"
+	data-event-rsvp-cta-size="medium"
+	data-event-rsvp-text="SET REMINDER"
+	data-event-rsvp-icon="false"
+	data-event-rsvp-cta-text-color="#08C3BA"
+	data-event-rsvp-cta-bg-color="#FFFFFF"
+	data-event-rsvp-cta-border-color="#08C3BA"
+	data-event-rsvp-cta-border-width="1px"
+	data-event-rsvp-cta-border-radius="4px"
+	
+	data-follow-section-position="top"
+	data-follow-section-alignment="center"
+	data-follow-section-header-text="Get updates on new shows, new music, and more."
+	data-follow-section-cta-size="medium"
+	data-follow-section-cta-text="FOLLOW"
+	data-follow-section-cta-icon="true"
+	data-follow-section-cta-text-color="#FFFFFF"
+	data-follow-section-cta-bg-color="#08C3BA"
+	data-follow-section-cta-border-color="#08C3BA"
+	data-follow-section-cta-border-width="0px"
+	data-follow-section-cta-border-radius="4px"
+	
+	data-play-my-city-position="bottom"
+	data-play-my-city-alignment="Center"
+	data-play-my-city-header-text="Don’t see a show near you?"
+	data-play-my-city-cta-size="medium"
+	data-play-my-city-cta-text="REQUEST A SHOW"
+	data-play-my-city-cta-icon="true"
+	data-play-my-city-cta-text-color="#FFFFFF"
+	data-play-my-city-cta-bg-color="#08C3BA"
+	data-play-my-city-cta-border-color="#08C3BA"
+	data-play-my-city-cta-border-width="0px"
+	data-play-my-city-cta-border-radius="4px"
+	
+	data-language="en"
+	data-widget-width=""
+	data-div-id=""
+	data-app-id=""
+	data-affil-code="undefined"
+	data-bit-logo-position="bottomRight"
+	data-bit-logo-color="#CCCCCC"
+	
+    ></a> -->
+    
   </body>
+  <script
+    charset="utf-8"
+    src="https://widgetv3.bandsintown.com/main.min.js"
+  ></script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
   <script src="./Assets/Js/Script.js"></script>
 </html>
 
-<!-- <iframe
-  style="border-radius: 12px"
-  src="https://open.spotify.com/embed/artist/4iVhFmG8YCCEHANGeUUS9q?utm_source=generator"
-  width="100%"
-  height="380"
-  frameborder="0"
-  allowfullscreen=""
-  allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-></iframe> -->
