@@ -1,10 +1,25 @@
 header {
     color: rgb(250, 247, 247);
     background-color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .search {
     border: solid 2px black;
+}
+
+#searchBtn {
+    border-radius: 12px;
+    background-color: rgb(11, 163, 239);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:rgb(250, 247, 247);
+    padding: 2px 24px;
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+h2 {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(41, 104, 135);
 }
 
 #artist-search {
