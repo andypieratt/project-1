@@ -1,3 +1,6 @@
+// rest.bandsintown.com/artists/{{artist_name}}/?app_id=yOUrSuP3r3ven7aPp-id
+
+// rest.bandsintown.com/artists/{{artist_name}}/events/?app_id=yOUrSuP3r3ven7aPp-id
 
 // const axios = require("axios");
 
@@ -16,8 +19,6 @@
 // }).catch(function (error) {
 // 	console.error(error);
 // });
-
-
 
 $("#searchBtn").click(function () {
   var searchEl = $("#searchInput").val();
