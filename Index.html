@@ -30,8 +30,12 @@
       <h1 class="display-3">Fan App</h1>
     </header>
 
-    <div id="" class="d-flex flex-column align-items-center"><label id="artist-search" class="d-flex"></label><input class="search">Enter Artist Here</input></div>
-    <div class="d-flex flex-column align-items-center music-container"><iframe
+    <div id="" class="d-flex flex-column align-items-center"><label id="artist-search" class="d-flex"></label>
+			<input id="searchInput" class="search"></input>
+			<button id="searchBtn">Search</button>
+		</div>
+		<div class="d-flex flex-column align-items-center music-container my-3">
+			<iframe
         id="spotifyWidget"
         style="border-radius: 12px"
         width="100%"
@@ -40,6 +44,7 @@
         allowfullscreen=""
         allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
       ></iframe>
+		</div>
 		<ul>
 			<li id="song1"><div><label></label><button>play</button></div></li>
 			<li id="song2"><div><label></label><button>play</button></div></li>
@@ -48,13 +53,13 @@
 			<li id="song5"><div><label></label><button>play</button></div></li>
 		</ul>
 	</div>
-    <div class="d-flex flex-column align-items-center event-container"><section>
-		<ol>
-			<li id="event1"><div><label></label><button>play</button></div></li>
-			<li id="event2"><div><label></label><button>play</button></div></li>
-			<li id="event3"><div><label></label><button>play</button></div></li>
-			<li id="event4"><div><label></label><button>play</button></div></li>
-			<li id="event5"><div><label></label><button>play</button></div></li>
+    <div class=""><section>
+		<ol class="">
+			<li id="event1"><div><label></label><button>Event1</button></div></li>
+			<li id="event2"><div><label></label><button>Event2</button></div></li>
+			<li id="event3"><div><label></label><button>Event3</button></div></li>
+			<li id="event4"><div><label></label><button>Event4</button></div></li>
+			<li id="event5"><div><label></label><button>Event5</button></div></li>
 		</ul>
 	</section></div>
 

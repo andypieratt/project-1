@@ -1,4 +1,3 @@
-
 $("#searchBtn").click(function () {
   var searchEl = $("#searchInput").val();
   localStorage.setItem("artist-name", searchEl);
@@ -40,4 +39,3 @@ function addId() {
     "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
   );
 }
-
