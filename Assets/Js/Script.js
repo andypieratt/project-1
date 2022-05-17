@@ -5,6 +5,15 @@ $("#searchBtn").click(function () {
   addId();
 });
 
+$("#searchInput").on("keydown", function (e) {
+  if (e.key === "Enter") {
+    var searchEl = $("#searchInput").val();
+    localStorage.setItem("artist-name", searchEl);
+    getArtist();
+    addId();
+  }
+});
+
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
   var options = {
