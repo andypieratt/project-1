@@ -5,7 +5,6 @@ $("#searchBtn").click(function () {
   addId();
 });
 
-//
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
   var options = {
