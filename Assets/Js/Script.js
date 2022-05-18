@@ -101,7 +101,7 @@ function getSocial() {
        )}
 
 
-   $("#social").attr(
+   $("#socialTube").attr(
     "link",
     "https://youtube.com/" + youtube
   );
@@ -123,7 +123,7 @@ function getSocial() {
        )}
 
    $("#fanCount").attr("value", fanCount)
-    );
+    ;
 
 
 
