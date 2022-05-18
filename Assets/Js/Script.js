@@ -103,7 +103,7 @@ function getSocial() {
 
    $("#social").attr(
     "link",
-    "https://youtube.com/" + instagram
+    "https://youtube.com/" + youtube
   );
   if(youtube === null) {
        var artistName = localStorage.getItem("artist-name");
@@ -114,17 +114,15 @@ function getSocial() {
 
    $("#socialTikTok").attr(
     "link",
-    "https://tiktok.com/" + instagram
-      );if(twitter === null) {
+    "https://tiktok.com/" + tiktok
+      );if(tiktok === null) {
        var artistName = localStorage.getItem("artist-name");
        $("#socialTwit").attr(
     "link",
     "https://tiktok.com/" + artistName
        )}
 
-   $("#socialInsta").attr(
-    "link",
-    "https://tiktok.com/" + instagram
+   $("#fanCount").attr("value", fanCount)
     );
 
 
