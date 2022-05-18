@@ -86,18 +86,24 @@ function getSocial() {
 }
 
 function addSocialButtons() {
+<<<<<<< HEAD
   var instagram = localStorage.getItem("instagram");
   $("#socialInsta").attr("src", "https://instagram" + instagram);
 }
+=======
+var instagram = localStorage.getItem("instagram");
+>>>>>>> dd060f5f9e6cf8c5115513a3fffec34038066e98
 var twitter = localStorage.getItem("twitter");
 var youtube = localStorage.getItem("youtube");
 var tiktok = localStorage.getItem("tiktok");
 var fanCount = localStorage.getItem("fanCount");
+//THis is the social link for the artists Instagram//
 $("#socialInsta").attr("link", "https://instagram.com/" + instagram);
 if (instagram === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialInsta").attr("link", "https://instagram.com/" + artistName);
 }
+<<<<<<< HEAD
 
 $("#socialTwit").attr("link", "https://twitter.com/" + twitter);
 if (twitter === null) {
@@ -112,22 +118,30 @@ if (youtube === null) {
 }
 
 $("#fanCount").attr("value", fanCount);
+=======
+//This is the social link for the artists Twitter//
+>>>>>>> dd060f5f9e6cf8c5115513a3fffec34038066e98
 $("#socialTwit").attr("link", "https://twitter.com/" + twitter);
 if (twitter === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialTwit").attr("link", "https://twitter.com/" + artistName);
 }
 
+<<<<<<< HEAD
+=======
+//This is social Link for the artists Youtube//
+>>>>>>> dd060f5f9e6cf8c5115513a3fffec34038066e98
 $("#social").attr("link", "https://youtube.com/" + youtube);
 if (youtube === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialTube").attr("link", "https://youtube.com/" + artistName);
 }
-
+//This is the social link for the artists tiktok//
 $("#socialTikTok").attr("link", "https://tiktok.com/" + tiktok);
 if (tiktok === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialTwit").attr("link", "https://tiktok.com/" + artistName);
 }
-
+//This is the Fancount//
 $("#fanCount").attr("value", fanCount);
+}
