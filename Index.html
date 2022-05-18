@@ -36,12 +36,17 @@
 			<input id="searchInput" class="search my-2 p-2" placeholder="Search for an artist!"></input>
 			<button class="my-2" id="searchBtn">Search</button>
 		</div>
-		<div class="text-left my-5">
+		<div id="spotifyTitle" class="text-left my-5 invisible">
 			<h2>Artist Spotify:</h2>
 		</div>
+
+		<div>
+			<img id="placeholderSpotify" class="img-fluid rounded mx-auto d-block" src="./Assets/images/Your Favorite Artist.png"
+			alt="search for your favorite artist and display their spotify">
+		</div>
 		
-		<div class="container float-left">
-			<div class="d-flex flex-column align-items-center music-container mb-5" >
+		<div id="spotifyContainer" class="container float-left invisible">
+			<div class="d-flex align-items-center music-container mb-5 event-container-img" >
 				<iframe
 					id="spotifyWidget"
 					style="border-radius: 12px"
@@ -54,7 +59,7 @@
 			</div>
 		</div>
 		<!--BANDS IN TOWN SECTION OR GENERAL EVENTS-->
-    <div class=""><section>
+    <div id="eventContainer" class="invisible"><section>
 			<h2 class="text-center mb-5">Artist Social Media OR Bands In Town:</h2>
 			<ol class="">
 			<li id="event1"><div><label></label><button>Event1</button></div></li>
