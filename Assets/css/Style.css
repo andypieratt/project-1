@@ -44,6 +44,16 @@ h2 {
     min-height: 350px;
 }
 
+.event-container-img {
+    width: 50%;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+#placeholderSpotify {
+    width: 50%;
+}
+
 
 
 
