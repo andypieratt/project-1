@@ -2,10 +2,8 @@ $("#searchBtn").click(function () {
   var searchEl = $("#searchInput").val();
   localStorage.setItem("artist-name", searchEl);
   getArtist();
-  addId();
 });
 
-//
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
   var options = {
@@ -30,6 +28,7 @@ function getArtist() {
       var uri = artistUri.substring(15);
       localStorage.setItem("uri", uri);
     });
+    addId();
 }
 
 function addId() {
