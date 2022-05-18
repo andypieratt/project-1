@@ -32,6 +32,9 @@ h2 {
     width: 50%;
     min-width: 500px;
     min-height: 350px;
+    border-width: 1rem;
+    border-style: solid;
+    border-color: rgb(255, 174, 0);
 }
 
 .event-container {
@@ -41,10 +44,14 @@ h2 {
     min-height: 350px;
 }
 
+
+
+
 footer {
     background-color: black;
     color: rgb(250, 247, 247);
 }
+
 
 @media screen {
     .event-container {
