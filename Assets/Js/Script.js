@@ -100,11 +100,13 @@ if (instagram === null) {
   $("#socialInsta").attr("link", "https://instagram.com/" + artistName);
 }
 
+
 $("#socialTwit").attr("link", "https://twitter.com/" + twitter);
 if (twitter === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialTwit").attr("link", "https://twitter.com/" + artistName);
 }
+
 
 $("#social").attr("link", "https://youtube.com/" + youtube);
 if (youtube === null) {
