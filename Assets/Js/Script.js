@@ -101,7 +101,7 @@ function getSocial() {
        )}
 
 
-   $("#social").attr(
+   $("#socialTube").attr(
     "link",
     "https://youtube.com/" + youtube
   );
