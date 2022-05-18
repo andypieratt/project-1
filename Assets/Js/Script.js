@@ -123,7 +123,7 @@ function getSocial() {
        )}
 
    $("#fanCount").attr("value", fanCount)
-    );
+    ;
 
 
 
