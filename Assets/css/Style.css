@@ -41,6 +41,11 @@ h2 {
     min-height: 350px;
 }
 
+footer {
+    background-color: black;
+    color: rgb(250, 247, 247);
+}
+
 @media screen {
     .event-container {
         background-color: grey;
