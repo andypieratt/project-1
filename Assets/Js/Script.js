@@ -2,19 +2,9 @@ $("#searchBtn").click(function () {
   var searchEl = $("#searchInput").val();
   localStorage.setItem("artist-name", searchEl);
   getArtist();
-  addId();
+  getSocial();
 });
 
-$("#searchInput").on("keydown", function (e) {
-  if (e.key === "Enter") {
-    var searchEl = $("#searchInput").val();
-    localStorage.setItem("artist-name", searchEl);
-    getArtist();
-    addId();
-  }
-});
-
-//
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
   var options = {
@@ -39,6 +29,7 @@ function getArtist() {
       var uri = artistUri.substring(15);
       localStorage.setItem("uri", uri);
     });
+    addId();
 }
 
 function addId() {
@@ -46,5 +37,46 @@ function addId() {
   $("#spotifyWidget").attr(
     "src",
     "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
+  );
+}
+
+function getSocial() {
+    var artistName = localStorage.getItem("artist-name");
+    var options = {
+  method: 'GET',
+  headers: {
+    'X-RapidAPI-Host': 'social-media-data-tt.p.rapidapi.com',
+    'X-RapidAPI-Key': '75080e53e7msh0421906c88ed526p142680jsndffae68637d9'
+  }};
+
+    fetch(
+        'https://social-media-data-tt.p.rapidapi.com/live/user/search/?q=' + artistName + "&keyword=" + artistName + "&limit=5", options
+    )
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log(data)
+            var instagram = data.result[0].other_social_profiles.instagram_username;
+            var twitter = data.result[0].other_social_profiles.twitter.twitter_username;
+            var youtube = data.result[0].other_social_profiles.youtube.youtube_channel_name;
+            var tiktok = data.result[0].unique_id;
+            var fanCount = data.result[0].follower_count;
+
+            localStorage.setItem("instagram", instagram);
+            localStorage.setItem("twitter", twitter);
+            localStorage.setItem("youtube", youtube);
+            localStorage.setItem("tiktok", tiktok);
+            localStorage.setItem("fanCount", fanCount);
+        });
+        addSocialButtons();
+}
+
+ function addSocialButtons() {
+  var instagram = localStorage.getItem("instagram");
+
+  $("#socialInsta").attr(
+    "src",
+    "https://instagram" + instagram
   );
 }
