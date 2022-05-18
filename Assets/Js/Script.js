@@ -74,9 +74,59 @@ function getSocial() {
 
  function addSocialButtons() {
   var instagram = localStorage.getItem("instagram");
-
+   var twitter = localStorage.getItem("twitter");
+    var youtube = localStorage.getItem("youtube");
+    var tiktok = localStorage.getItem("tiktok");
+    var fanCount = localStorage.getItem("fanCount");
   $("#socialInsta").attr(
-    "src",
-    "https://instagram" + instagram
+    "link",
+    "https://instagram.com/" + instagram
   );
+    if(instagram === null) {
+       var artistName = localStorage.getItem("artist-name");
+       $("#socialInsta").attr(
+    "link",
+    "https://instagram.com/" + artistName
+       )}
+
+   $("#socialTwit").attr(
+    "link",
+    "https://twitter.com/" + twitter
+  );
+     if(twitter === null) {
+       var artistName = localStorage.getItem("artist-name");
+       $("#socialTwit").attr(
+    "link",
+    "https://twitter.com/" + artistName
+       )}
+
+
+   $("#social").attr(
+    "link",
+    "https://youtube.com/" + instagram
+  );
+  if(youtube === null) {
+       var artistName = localStorage.getItem("artist-name");
+       $("#socialTube").attr(
+    "link",
+    "https://youtube.com/" + artistName
+       )}
+
+   $("#socialTikTok").attr(
+    "link",
+    "https://tiktok.com/" + instagram
+      );if(twitter === null) {
+       var artistName = localStorage.getItem("artist-name");
+       $("#socialTwit").attr(
+    "link",
+    "https://tiktok.com/" + artistName
+       )}
+
+   $("#socialInsta").attr(
+    "link",
+    "https://tiktok.com/" + instagram
+    );
+
+
+
 }
