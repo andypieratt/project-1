@@ -101,6 +101,19 @@ if (instagram === null) {
 }
 
 
+
+   $("#socialTube").attr(
+    "link",
+    "https://youtube.com/" + youtube
+  );
+  if(youtube === null) {
+       var artistName = localStorage.getItem("artist-name");
+       $("#socialTube").attr(
+    "link",
+    "https://youtube.com/" + artistName
+       )}
+
+
 $("#socialTwit").attr("link", "https://twitter.com/" + twitter);
 if (twitter === null) {
   var artistName = localStorage.getItem("artist-name");
