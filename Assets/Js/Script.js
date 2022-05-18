@@ -87,8 +87,6 @@ function getSocial() {
 
 function addSocialButtons() {
   var instagram = localStorage.getItem("instagram");
-
-<<<<<<< HEAD
   $("#socialInsta").attr("src", "https://instagram" + instagram);
 }
 var twitter = localStorage.getItem("twitter");
@@ -106,31 +104,19 @@ if (twitter === null) {
   var artistName = localStorage.getItem("artist-name");
   $("#socialTwit").attr("link", "https://twitter.com/" + artistName);
 }
-=======
-   $("#socialTube").attr(
-    "link",
-    "https://youtube.com/" + youtube
-  );
-  if(youtube === null) {
-       var artistName = localStorage.getItem("artist-name");
-       $("#socialTube").attr(
-    "link",
-    "https://youtube.com/" + artistName
-       )}
 
-   $("#socialTikTok").attr(
-    "link",
-    "https://tiktok.com/" + tiktok
-      );if(tiktok === null) {
-       var artistName = localStorage.getItem("artist-name");
-       $("#socialTwit").attr(
-    "link",
-    "https://tiktok.com/" + artistName
-       )}
+$("#socialTube").attr("link", "https://youtube.com/" + youtube);
+if (youtube === null) {
+  var artistName = localStorage.getItem("artist-name");
+  $("#socialTube").attr("link", "https://youtube.com/" + artistName);
+}
 
-   $("#fanCount").attr("value", fanCount)
-    ;
->>>>>>> 3e21dab9115a72b7ca14e17f82dc9526181e29e0
+$("#fanCount").attr("value", fanCount);
+$("#socialTwit").attr("link", "https://twitter.com/" + twitter);
+if (twitter === null) {
+  var artistName = localStorage.getItem("artist-name");
+  $("#socialTwit").attr("link", "https://twitter.com/" + artistName);
+}
 
 $("#social").attr("link", "https://youtube.com/" + youtube);
 if (youtube === null) {
