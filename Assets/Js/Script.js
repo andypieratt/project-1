@@ -15,6 +15,7 @@ $("#searchBtn").on("click", function () {
 
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
+  console.log(artistName);
   var options = {
     method: "GET",
     headers: {
@@ -36,8 +37,9 @@ function getArtist() {
       console.log(data);
       var uri = artistUri.substring(15);
       localStorage.setItem("uri", uri);
+      addId();
     });
-  addId();
+  
 }
 
 function addId() {
@@ -78,6 +80,7 @@ function getSocial() {
         data.result[0].other_social_profiles.youtube.youtube_channel_name;
       var tiktok = data.result[0].unique_id;
       var fanCount = data.result[0].follower_count;
+      var avatar = data.result[0].avatar_medium;
       
 
       localStorage.setItem("instagram", instagram);
@@ -86,8 +89,9 @@ function getSocial() {
       localStorage.setItem("tiktok", tiktok);
       localStorage.setItem("fanCount", fanCount);
       localStorage.setItem("avatar", avatar)
+      addSocialButtons();
     });
-  addSocialButtons();
+  
 }
 
 function addSocialButtons() {
@@ -137,17 +141,21 @@ $("#fanCount").text("fanCount", fanCount);
 
 function getBrainz() {
   var artistName = localStorage.getItem("artist-name");
-
-  fetch("https://musicbrainz.org/ws/2/artist/" +
+  var options = {
+    method: "GET",
+    "Accept": "application/json",
+    "Authorization": "39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
+  }
+  fetch("https://api.predicthq.com/v1/?q=" +
       artistName +
-      "?inc=all")
+      "&limit=5", options)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log(data);
 
-      // var avatar = data.result[0].avatar_medium;
+    
     })}
       // var instagram = data.result[0].other_social_profiles.instagram_username;
       // var twitter =
