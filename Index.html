@@ -24,7 +24,7 @@
       rel="stylesheet"/>
 		<!--CUSTOM CSS-->
     <link rel="stylesheet" href="./Assets/css/Style.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css">
+		<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.2/font/bootstrap-icons.css"> -->
     <title>Fan App</title>
   </head>
   <body>
@@ -37,6 +37,18 @@
 			<input id="searchInput" class="search my-2 p-2" placeholder="Search for an artist!"></input>
 			<button class="my-2" id="searchBtn">Search</button>
 		</div>
+		
+		<div id="artistContainer" class='invisible d-flex flex-row justify-space-around'>
+			<p id="stageName"></p>
+			<a id="fanCount" target="_blank" val=""></a> 
+			<img id="artistAvatar" src=""></img> 
+			<ul id="socialContainer" class="d-flex flex-row justify-content-right">
+				<li class="socialBtn" target="_blank" onclick=""><a id="socialInsta" href=""></a><img src="./Assets/images/social-instagram-new-circle-512 copy.png"></img></li>
+				<li class="socialBtn" target="_blank" onclick=""><a id="socialTwit" href=""></a><img src="./Assets/images/twitter_PNG19 copy.png" ></img></li>
+				<li class="socialBtn" target="_blank" onclick=""><a id="socialTube" href=""></a><img src="./Assets/images/transparent-youtube-logo-clipart-6 copy.png"></img></li>
+				<li class="socialBtn" target="_blank" onclick=""><a id="socialTikTok" href=""></a><img src="./Assets/images/Cute-TikTok-Logo copy.png"></img></li>
+			</ul>
+		</div>
 		<div id="spotifyTitle" class="text-left my-5 invisible">
 			<h2>Artist Spotify:</h2>
 		</div>
@@ -45,7 +57,7 @@
 			<img id="placeholderSpotify" class="img-fluid rounded mx-auto d-block" src="./Assets/images/Your Favorite Artist.png"
 			alt="search for your favorite artist and display their spotify">
 		</div>
-		
+		<div></div>
 		<div id="spotifyContainer" class="container float-left invisible">
 			<div class="d-flex align-items-center music-container mb-5 event-container-img" >
 				<iframe
@@ -60,7 +72,7 @@
 			</div>
 		</div>
 		<!--BANDS IN TOWN SECTION OR GENERAL EVENTS-->
-    <div id="eventContainer" class="invisible"><section>
+    <div id="eventContainer" class="invisible float-right"><section>
 			<h2 class="text-center mb-5">Artist Social Media OR Bands In Town:</h2>
 			<ol class="">
 			<li id="event1"><div><label></label><button>Event1</button></div></li>
@@ -71,15 +83,9 @@
 			</ol>
 	</section></div>
 	
-	<div><button id="fanCount" target="_blank" link=""></button></div>
 	
-	<div class="container float-left d-flex flex-row justify-content-center">
-		<div><button id="socialInsta" target="_blank" link=""><i class="bi bi-instagram"></i></button></div>
-		<div><button id="socialTwit" target="_blank" link=""><i class="bi bi-twitter"></i></button></div>
-		<div><button id="socialTube" target="_blank" link=""><i class="bi bi-youtube"></i></button></div>
-		<div><button id="socialTikTok" target="_blank" link=""><i class="bi bi-tiktok"></i></button></div>
-	</div>
-
+	
+	
 	<footer class="d-flex w-100 justify-content-center mt-5 py-5">
 		<h5>©Ultimate Fan App 2022</h5>
 	</footer>

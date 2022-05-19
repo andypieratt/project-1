@@ -1,11 +1,13 @@
-$("#searchBtn").click(function () {
+$("#searchBtn").on("click", function () {
   var searchEl = $("#searchInput").val();
   var spotifyPlaceholder = $("#placeholderSpotify");
   localStorage.setItem("artist-name", searchEl);
   spotifyPlaceholder.remove();
-  $("#spotifyTitle").attr("class", "visible");
-  $("#spotifyContainer").attr("class", "visible");
-  $("#eventContainer").attr("class", "visible");
+  $("#spotifyTitle").attr("class", "visible d-flex flex-row justify-space-around");
+  $("#spotifyContainer").attr("class", "visible container float-left");
+  $("#eventContainer").attr("class", "visible float-right");
+  $("#socialContainer").attr("class", "visible d-flex flex-row");
+  $("#artistContainer").attr("class", "visible d-flex flex-rox justify-content-center");
   getArtist();
   getSocial();
 });
@@ -30,7 +32,7 @@ function getArtist() {
     })
     .then(function (data) {
       var artistUri = data.artists.items[0].data.uri;
-      console.log(artistUri);
+      console.log(data);
       var uri = artistUri.substring(15);
       localStorage.setItem("uri", uri);
     });
@@ -75,12 +77,14 @@ function getSocial() {
         data.result[0].other_social_profiles.youtube.youtube_channel_name;
       var tiktok = data.result[0].unique_id;
       var fanCount = data.result[0].follower_count;
+      var avatar = data.result[0].avatar_medium;
 
       localStorage.setItem("instagram", instagram);
       localStorage.setItem("twitter", twitter);
       localStorage.setItem("youtube", youtube);
       localStorage.setItem("tiktok", tiktok);
       localStorage.setItem("fanCount", fanCount);
+      localStorage.setItem("avatar", avatar)
     });
   addSocialButtons();
 }
@@ -91,31 +95,49 @@ var twitter = localStorage.getItem("twitter");
 var youtube = localStorage.getItem("youtube");
 var tiktok = localStorage.getItem("tiktok");
 var fanCount = localStorage.getItem("fanCount");
+var artistName = localStorage.getItem("artist-name");
+var avatar = localStorage.getItem("avatar");
+
+$("#artistAvatar").attr("src", avatar)
+//This is the Fancount//
+$("#fanCount").text("fanCount", fanCount);
+
 //THis is the social link for the artists Instagram//
-$("#socialInsta").attr("link", "https://instagram.com/" + instagram);
-if (instagram === null) {
-  var artistName = localStorage.getItem("artist-name");
-  $("#socialInsta").attr("link", "https://instagram.com/" + artistName);
-}
+  if (instagram !== null) {
+    $("#socialInsta").attr("href",
+  "https://instagram.com/" + instagram);
+  } else {
+      $("#socialInsta").attr("href", "https://instagram.com/" + artistName);
+    }
 //This is the social link for the artists Twitter//
-$("#socialTwit").attr("link", "https://twitter.com/" + twitter);
-if (twitter === null) {
-  var artistName = localStorage.getItem("artist-name");
-  $("#socialTwit").attr("link", "https://twitter.com/" + artistName);
-}
+  if (twitter !== null) {
+  $("#socialTwit").attr("href", "https://twitter.com/" + twitter);
+  }   else {
+      $("#socialTwit").attr("href", "https://twitter.com/" + artistName);
+  }
 
 //This is social Link for the artists Youtube//
-$("#social").attr("link", "https://youtube.com/" + youtube);
-if (youtube === null) {
-  var artistName = localStorage.getItem("artist-name");
-  $("#socialTube").attr("link", "https://youtube.com/" + artistName);
-}
+  if (youtube !== null) {
+    $("#socialTube").attr("href", "https://youtube.com/" + youtube);}
+  else {
+  $("#socialTube").attr("href", "https://youtube.com/" + artistName);
+  }
+
 //This is the social link for the artists tiktok//
-$("#socialTikTok").attr("link", "https://tiktok.com/" + tiktok);
-if (tiktok === null) {
-  var artistName = localStorage.getItem("artist-name");
-  $("#socialTwit").attr("link", "https://tiktok.com/" + artistName);
+    
+    if (tiktok !== null) {
+      $("#socialTikTok").attr("href", "https://tiktok.com/" + tiktok);}
+      else {
+      $("#socialTwit").attr("href", "https://tiktok.com/" + artistName);
+    }
+    
+  
 }
-//This is the Fancount//
-$("#fanCount").attr("value", fanCount);
-}
+
+// function openLink (){
+
+//   $("li").css("cursor", "pointer")
+//   .click(function(){
+//     window.location("href", this)
+// });
+// }
