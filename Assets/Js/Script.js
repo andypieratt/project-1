@@ -167,9 +167,9 @@ function getLocation() {
     }};
     console.log(options);
     fetch(
-      "https://api.predicthq.com/v1/" +
-        // artistName +
-        "events/?location_around.offset=50mi&location_around.origin=" +
+      "https://api.predicthq.com/v1/events/?q=" +
+        artistName +
+        "&location_around.offset=50mi&limit=10&location_around.origin=" +
         lat +
         "%2C" +
         lon, options,
