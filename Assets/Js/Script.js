@@ -10,6 +10,7 @@ $("#searchBtn").on("click", function () {
   $("#artistContainer").attr("class", "visible d-flex flex-rox justify-content-center");
   getArtist();
   getSocial();
+  getBrainz();
 });
 
 function getArtist() {
@@ -18,7 +19,7 @@ function getArtist() {
     method: "GET",
     headers: {
       "X-RapidAPI-Host": "spotify23.p.rapidapi.com",
-      "X-RapidAPI-Key": "d5b7852d0amshae97f9f551ea2a3p1e6b2djsn39ffa901b56b",
+      "X-RapidAPI-Key": "75080e53e7msh0421906c88ed526p142680jsndffae68637d9",
     },
   };
   fetch(
@@ -40,7 +41,7 @@ function getArtist() {
 }
 
 function addId() {
-  var uri = localStorage.getItem("uri");
+  var uri = localStorage.getItem("uri", uri);
   $("#spotifyWidget").attr(
     "src",
     "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
@@ -77,7 +78,7 @@ function getSocial() {
         data.result[0].other_social_profiles.youtube.youtube_channel_name;
       var tiktok = data.result[0].unique_id;
       var fanCount = data.result[0].follower_count;
-      var avatar = data.result[0].avatar_medium;
+      
 
       localStorage.setItem("instagram", instagram);
       localStorage.setItem("twitter", twitter);
@@ -134,10 +135,43 @@ $("#fanCount").text("fanCount", fanCount);
   
 }
 
-// function openLink (){
+function getBrainz() {
+  var artistName = localStorage.getItem("artist-name");
 
-//   $("li").css("cursor", "pointer")
-//   .click(function(){
-//     window.location("href", this)
-// });
-// }
+  fetch("https://musicbrainz.org/ws/2/artist/" +
+      artistName +
+      "?inc=all")
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      // var avatar = data.result[0].avatar_medium;
+    })}
+      // var instagram = data.result[0].other_social_profiles.instagram_username;
+      // var twitter =
+      //   data.result[0].other_social_profiles.twitter.twitter_username;
+      // var youtube =
+      //   data.result[0].other_social_profiles.youtube.youtube_channel_name;
+      // var tiktok = data.result[0].unique_id;
+      // var fanCount = data.result[0].follower_count;
+
+      // localStorage.setItem("instagram", instagram);
+      // localStorage.setItem("twitter", twitter);
+      // localStorage.setItem("youtube", youtube);
+      // localStorage.setItem("tiktok", tiktok);
+      // localStorage.setItem("fanCount", fanCount);
+//       localStorage.setItem("avatar", avatar)
+//     });
+//   addSocialButtons();
+//   }
+
+// function addSocialButtons() {
+// var instagram = localStorage.getItem("instagram");
+// var twitter = localStorage.getItem("twitter");
+// var youtube = localStorage.getItem("youtube");
+// var tiktok = localStorage.getItem("tiktok");
+// var fanCount = localStorage.getItem("fanCount");
+// var artistName = localStorage.getItem("artist-name");
+// var avatar = localStorage.getItem("avatar");
