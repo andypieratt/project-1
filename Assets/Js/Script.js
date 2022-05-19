@@ -155,22 +155,33 @@ function getLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
   getBrainz();
 }
+  function getBrainz() {
+    var artistName = localStorage.getItem("artist-name");
+    var lat = localStorage.getItem("lat", lat);
+    var lon = localStorage.getItem("lon", lon);
+    var options = {
+      method: "GET",
+      headers: {
+      "Accept": "application/json",
+      "Authorization": "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
+    }};
+    console.log(options);
+    fetch(
+      "https://api.predicthq.com/v1/events/?q=" +
+        artistName +
+        "&location_around.offset=50mi&limit=10&location_around.origin=" +
+        lat +
+        "%2C" +
+        lon, options,
+    )
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
+  }
 
-function getBrainz() {
-  var artistName = localStorage.getItem("artist-name");
-  var options = {
-    method: "GET",
-    Accept: "application/json",
-    Authorization: "39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
-  };
-  fetch("https://api.predicthq.com/v1/?q=" + artistName + "&limit=5", options)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      console.log(data);
-    });
-}
 // var instagram = data.result[0].other_social_profiles.instagram_username;
 // var twitter =
 //   data.result[0].other_social_profiles.twitter.twitter_username;
