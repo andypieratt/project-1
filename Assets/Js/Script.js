@@ -1,5 +1,5 @@
 $("#searchBtn").on("click", function () {
-  localStorage.clear();
+  $("#artistEvents").empty();
   var searchEl = $("#searchInput").val();
   var spotifyPlaceholder = $("#placeholderSpotify");
   localStorage.setItem("artist-name", searchEl);
@@ -17,7 +17,7 @@ $("#searchBtn").on("click", function () {
   );
   getArtist();
   getSocial();
-  getLocation();
+  getSeatGeek();
 });
 
 function getArtist() {
@@ -142,21 +142,6 @@ function addSocialButtons() {
 
 // ONLY EDIT BELOW THIS LINE//
 
-function getLocation() {
-  var lat;
-  var lon;
-  function showPosition(pos) {
-    var crd = pos.coords;
-    lat = crd.latitude;
-    lon = crd.longitude;
-    localStorage.setItem("lat", lat);
-    localStorage.setItem("lon", lon);
-    console.log(crd);
-  }
-  navigator.geolocation.getCurrentPosition(showPosition);
-  getSeatGeek();
-}
-
 function getSeatGeek() {
   var artistName = localStorage.getItem("artist-name");
 
@@ -174,7 +159,7 @@ function getSeatGeek() {
       var events = data.events;
 
       for (let i = 0; i < events.length; i++) {
-        var eventList = $("<ul>");
+        var eventList = $("<ul id=displayEvents></ul>");
         $("#artistEvents").append(eventList);
 
         var eventListItem = $("<li>");
@@ -210,15 +195,26 @@ function getSeatGeek() {
     });
 }
 
+// function getLocation() {
+//   var lat;
+//   var lon;
+//   function showPosition(pos) {
+//     var crd = pos.coords;
+//     lat = crd.latitude;
+//     lon = crd.longitude;
+//     localStorage.setItem("lat", lat);
+//     localStorage.setItem("lon", lon);
+//     console.log(crd);
+//   }
+//   navigator.geolocation.getCurrentPosition(showPosition);
+
+// }
 // var options = {
 //   method: "GET",
 //   headers: {
 //     Accept: "application/json",
 //     Authorization: "NjA3NjEwfDE2NTMwMTA4ODMuODU1MzQwMg",
 //   },
-// var date = geo.results[0].start;
-// var venue = geo.results[0].entities[0].name;
-// var artist = geo.console.log(geo);
 
 // function getBrainz() {
 //   var artistName = localStorage.getItem("artist-name");
