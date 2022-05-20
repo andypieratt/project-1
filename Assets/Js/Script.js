@@ -86,7 +86,7 @@ function getSocial() {
         data.result[0].other_social_profiles.youtube.youtube_channel_name;
       var tiktok = data.result[0].unique_id;
       var fanCount = data.result[0].follower_count;
-      var avatar = data.result[0].avatar_medium;
+      var avatar = data.result[0].avatar_larger;
 
       localStorage.setItem("instagram", instagram);
       localStorage.setItem("twitter", twitter);
@@ -107,7 +107,8 @@ function addSocialButtons() {
   var artistName = localStorage.getItem("artist-name");
   var avatar = localStorage.getItem("avatar");
 
-  $("#artistAvatar").attr("src", avatar);
+  // This sets artist image as background//
+  $('body').css('background-image', 'url(' + avatar + ')');
   //This is the Fancount//
   $("#fanCount").text("Followers: " + fanCount);
 
