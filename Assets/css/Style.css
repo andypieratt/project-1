@@ -3,7 +3,10 @@ header {
     background-color: black;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
-
+body {
+    background-color: black;
+    color: white;
+}
 .search {
     border: solid 2px black;
 }
@@ -36,21 +39,25 @@ h2 {
     background-color: grey;
     width: 50%;
     min-width: 50%;
-    min-height: 50%;
+    max-width: 50%;
+    min-height: 60%;
+    max-height: 60%;
     border-width: 1rem;
     border-style: solid;
-    border-color: rgb(255, 174, 0);
+    border-radius: 15px;
+    border-color: rgb(3, 3, 3);
 }
 
-.event-container {
+#eventContainer {
     background-color: rgb(6, 6, 6);
+    color:white;
     width: 50%;
     min-width: 50%;
     min-height: 50%;
 }
 
 .event-container-img {
-    width: 50%;
+    width: 100%;
     min-width: 250px;
     min-height: 250px;
 }
