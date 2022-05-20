@@ -61,8 +61,8 @@ h2 {
     width: 50%;
     min-width: 100%;
     max-width: 100%;
-    min-height: 60%;
-    max-height: 60%;
+    /* min-height: 60%;
+    max-height: 60%; */
 }
 
 #eventContainer {
@@ -98,6 +98,10 @@ footer {
     color: rgb(250, 247, 247);
 }
 
+#spotifyContainer {
+    height: fit-content;
+}
+
 
 @media screen and (max-width: 720px){
     #apiContainer {
@@ -108,6 +112,7 @@ footer {
     #eventContainer {
         /* background-color: rgb(3, 3, 3); */
         width: 100%;
+        margin: 2%;
     }
 
     #spotifyContainer {
