@@ -153,34 +153,104 @@ function getLocation() {
     console.log(crd);
   }
   navigator.geolocation.getCurrentPosition(showPosition);
-  getBrainz();
+  getSeatGeek();
 }
-  function getBrainz() {
-    var artistName = localStorage.getItem("artist-name");
-    var lat = localStorage.getItem("lat", lat);
-    var lon = localStorage.getItem("lon", lon);
-    var options = {
-      method: "GET",
-      headers: {
-      "Accept": "application/json",
-      "Authorization": "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
-    }};
-    console.log(options);
-    fetch(
-      "https://api.predicthq.com/v1/events/?q=" +
-        artistName +
-        "&location_around.offset=50mi&limit=10&location_around.origin=" +
-        lat +
-        "%2C" +
-        lon, options,
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      });
-  }
+
+function getSeatGeek() {
+  var artistName = localStorage.getItem("artist-name");
+  var lat = localStorage.getItem("lat", lat);
+  var lon = localStorage.getItem("lon", lon);
+
+  fetch(
+    "https://api.seatgeek.com/2/events?q=" +
+      artistName +
+      "&range=50mi&client_id=NjA3NjEwfDE2NTMwMTA4ODMuODU1MzQwMg"
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+
+      var events = data.events;
+
+      for (let i = 0; i < events.length; i++) {
+        var eventList = $("<ul>");
+        $("#artistEvents").append(eventList);
+
+        var eventListItem = $("<li>");
+        eventListItem.append(events[i].title);
+
+        if (events[i].data_tbd === false) {
+          var dateTime = data.events[i].datetime_local;
+          dateTime = dateTime.split("T").join(" ");
+          var format = "YYYY/MM/DD hh:mm:ss";
+          var convertedDateTime = moment(dateTime, format);
+          eventListItem.append(
+            convertedDateTime.format("MM/DD/YY hh:mm A") + "</br>"
+          );
+        } else {
+          eventListItem.append("Date and Time TBD");
+        }
+        eventListItem.append("Venue: " + events[i].venue.name + "</br>");
+        eventListItem.append(
+          "Location: " + events[i].venue.display_location + "</br>"
+        );
+
+        var ticketBtn = $("<button>", {
+          text: "Buy Tickets",
+          class: "btn btn-primary",
+          click: function () {
+            window.open(events[i].url);
+          },
+        });
+        eventListItem.append(ticketBtn);
+
+        eventList.append(eventListItem);
+      }
+    });
+}
+
+// var options = {
+//   method: "GET",
+//   headers: {
+//     Accept: "application/json",
+//     Authorization: "NjA3NjEwfDE2NTMwMTA4ODMuODU1MzQwMg",
+//   },
+// var date = geo.results[0].start;
+// var venue = geo.results[0].entities[0].name;
+// var artist = geo.console.log(geo);
+
+// function getBrainz() {
+//   var artistName = localStorage.getItem("artist-name");
+//   var lat = localStorage.getItem("lat", lat);
+//   var lon = localStorage.getItem("lon", lon);
+//   var options = {
+//     method: "GET",
+//     headers: {
+//     "Accept": "application/json",
+//     "Authorization": "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
+//   }};
+//   console.log(options);
+//   fetch(
+//     "https://api.predicthq.com/v1/events/?q=" +
+//       artistName +
+//       "&location_around.offset=50mi&limit=10&location_around.origin=" +
+//       lat +
+//       "%2C" +
+//       lon, options,
+//   )
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (geo) {
+//       var date = geo.results[0].start;
+//       var venue = geo.results[0].entities[0].name;
+//       var artist = geo.
+//       console.log(geo);
+//     });
+
+// }
 
 // var instagram = data.result[0].other_social_profiles.instagram_username;
 // var twitter =
@@ -207,4 +277,4 @@ function getLocation() {
 // var tiktok = localStorage.getItem("tiktok");
 // var fanCount = localStorage.getItem("fanCount");
 // var artistName = localStorage.getItem("artist-name");
-// var avatar = localStorage.getItem("avatar");
+// var avatar = localStorage.getItem("avatar")
