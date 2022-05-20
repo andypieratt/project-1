@@ -1,4 +1,5 @@
 $("#searchBtn").on("click", function () {
+  localStorage.clear();
   var searchEl = $("#searchInput").val();
   var spotifyPlaceholder = $("#placeholderSpotify");
   localStorage.setItem("artist-name", searchEl);
@@ -108,7 +109,7 @@ function addSocialButtons() {
 
   $("#artistAvatar").attr("src", avatar);
   //This is the Fancount//
-  $("#fanCount").text("fanCount", fanCount);
+  $("#fanCount").text("Followers: " + fanCount);
 
   //THis is the social link for the artists Instagram//
   if (instagram !== null) {
@@ -158,8 +159,6 @@ function getLocation() {
 
 function getSeatGeek() {
   var artistName = localStorage.getItem("artist-name");
-  var lat = localStorage.getItem("lat", lat);
-  var lon = localStorage.getItem("lon", lon);
 
   fetch(
     "https://api.seatgeek.com/2/events?q=" +
