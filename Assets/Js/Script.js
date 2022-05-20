@@ -14,14 +14,13 @@ $("#searchBtn").on("click", function () {
     "class",
     "visible d-flex flex-rox justify-content-center"
   );
-  getArtist();
+  getArtist(searchEl);
   getSocial();
   getLocation();
 });
 
-function getArtist() {
-  var artistName = localStorage.getItem("artist-name");
-  console.log(artistName);
+function getArtist(artistName) {
+  console.log(artistName); //passed in from the main function
   var options = {
     method: "GET",
     headers: {
@@ -39,20 +38,14 @@ function getArtist() {
       return response.json();
     })
     .then(function (data) {
-      var artistUri = data.artists.items[0].data.uri;
       console.log(data);
+      var artistUri = data.artists.items[0].data.uri;
       var uri = artistUri.substring(15);
-      localStorage.setItem("uri", uri);
-      addId();
+      $("#spotifyWidget").attr(
+        "src",
+        "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
+      );
     });
-}
-
-function addId() {
-  var uri = localStorage.getItem("uri", uri);
-  $("#spotifyWidget").attr(
-    "src",
-    "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
-  );
 }
 
 function getSocial() {
@@ -155,32 +148,34 @@ function getLocation() {
   navigator.geolocation.getCurrentPosition(showPosition);
   getBrainz();
 }
-  function getBrainz() {
-    var artistName = localStorage.getItem("artist-name");
-    var lat = localStorage.getItem("lat", lat);
-    var lon = localStorage.getItem("lon", lon);
-    var options = {
-      method: "GET",
-      headers: {
-      "Accept": "application/json",
-      "Authorization": "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
-    }};
-    console.log(options);
-    fetch(
-      "https://api.predicthq.com/v1/events/?q=" +
-        artistName +
-        "&location_around.offset=50mi&limit=10&location_around.origin=" +
-        lat +
-        "%2C" +
-        lon, options,
-    )
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-      });
-  }
+function getBrainz() {
+  var artistName = localStorage.getItem("artist-name");
+  var lat = localStorage.getItem("lat", lat);
+  var lon = localStorage.getItem("lon", lon);
+  var options = {
+    method: "GET",
+    headers: {
+      Accept: "application/json",
+      Authorization: "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
+    },
+  };
+  console.log(options);
+  fetch(
+    "https://api.predicthq.com/v1/events/?q=" +
+      artistName +
+      "&location_around.offset=50mi&limit=10&location_around.origin=" +
+      lat +
+      "%2C" +
+      lon,
+    options
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log(data);
+    });
+}
 
 // var instagram = data.result[0].other_social_profiles.instagram_username;
 // var twitter =
