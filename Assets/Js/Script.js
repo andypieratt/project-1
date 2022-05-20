@@ -108,7 +108,7 @@ function addSocialButtons() {
   var avatar = localStorage.getItem("avatar");
 
   // This sets artist image as background//
-  $('body').css('background-image', 'url(' + avatar + ')');
+  $("body").css("background-image", "url(" + avatar + ")");
   //This is the Fancount//
   $("#fanCount").text("Followers: " + fanCount);
 
@@ -156,9 +156,10 @@ function getSeatGeek() {
     })
     .then(function (data) {
       console.log(data);
-
+      var performer = data.events[0].performers[0].name;
       var events = data.events;
-
+      localStorage.setItem("Performer", performer);
+      $("#stageName").text(performer);
       for (let i = 0; i < events.length; i++) {
         var eventList = $("<ul id=displayEvents></ul>");
         $("#artistEvents").append(eventList);
