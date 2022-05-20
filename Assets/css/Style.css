@@ -7,12 +7,17 @@ header {
 .search {
     border: solid 2px black;
 }
+#socialBtn {
+    background-color: none;
+    border: none;
+    width: 25%;
+}
 
 #searchBtn {
     border-radius: 12px;
     background-color: rgb(11, 163, 239);
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color:rgb(250, 247, 247);
+    color: rgb(250, 247, 247);
     padding: 2px 24px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -30,16 +35,44 @@ h2 {
 .music-container {
     background-color: grey;
     width: 50%;
-    min-width: 500px;
-    min-height: 350px;
+    min-width: 50%;
+    min-height: 50%;
+    border-width: 1rem;
+    border-style: solid;
+    border-color: rgb(255, 174, 0);
 }
 
 .event-container {
     background-color: rgb(6, 6, 6);
     width: 50%;
-    min-width:500px;
-    min-height: 350px;
+    min-width: 50%;
+    min-height: 50%;
 }
+
+.event-container-img {
+    width: 50%;
+    min-width: 250px;
+    min-height: 250px;
+}
+
+#placeholderSpotify {
+    width: 50%;
+}
+
+img {
+    width: 40px;
+    height: 40px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+footer {
+    background-color: black;
+    color: rgb(250, 247, 247);
+}
+
 
 @media screen {
     .event-container {

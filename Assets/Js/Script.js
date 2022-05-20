@@ -20,7 +20,6 @@ $("#searchBtn").on("click", function () {
 });
 
 function getArtist(artistName) {
-  // var artistName = artistId; //localStorage.getItem("artist-name");
   console.log(artistName); //passed in from the main function
   var options = {
     method: "GET",
@@ -41,18 +40,12 @@ function getArtist(artistName) {
     .then(function (data) {
       console.log(data);
       var artistUri = data.artists.items[0].data.uri;
-
       var uri = artistUri.substring(15);
-      //  localStorage.setItem("uri", uri);
       $("#spotifyWidget").attr(
         "src",
         "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
       );
     });
-}
-
-function addId(uri) {
-  //var uri = localStorage.getItem("uri", uri);  passed in from previous function
 }
 
 function getSocial() {
