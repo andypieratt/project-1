@@ -36,10 +36,10 @@ h2 {
 }
 
 .music-container {
-    background-color: grey;
+    background-color: rgb(2, 2, 2);
     width: 50%;
-    min-width: 50%;
-    max-width: 50%;
+    min-width: 100%;
+    max-width: 100%;
     min-height: 60%;
     max-height: 60%;
     border-width: 1rem;
@@ -81,14 +81,21 @@ footer {
 }
 
 
-@media screen {
-    .event-container {
-        background-color: grey;
+@media screen and (max-width: 720px){
+    #apiContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    #eventContainer {
+        /* background-color: rgb(3, 3, 3); */
         width: 100%;
     }
 
-    .music-container {
+    #spotifyContainer {
         background-color: rgb(2, 2, 2);
         width: 100%;
     }
+
+    
 }
