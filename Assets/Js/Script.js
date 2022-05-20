@@ -39,11 +39,13 @@ function getArtist() {
     .then(function (response) {
       return response.json();
     })
-    .then(function (data) {
-      var artistUri = data.artists.items[0].data.uri;
-      console.log(data);
+    .then(function (spotify) {
+      console.log(spotify);
+      var artistUri = spotify.artists.items[0].data.uri;
       var uri = artistUri.substring(15);
       localStorage.setItem("uri", uri);
+      var artistName = spotify.artists.items[0].data.profile.name;
+      $("#stageName").text(artistName);
       addId();
     });
 }
@@ -156,10 +158,8 @@ function getSeatGeek() {
     })
     .then(function (data) {
       console.log(data);
-      var performer = data.events[0].performers[0].name;
       var events = data.events;
-      localStorage.setItem("Performer", performer);
-      $("#stageName").text(performer);
+
       for (let i = 0; i < events.length; i++) {
         var eventList = $("<ul id=displayEvents></ul>");
         $("#artistEvents").append(eventList);
