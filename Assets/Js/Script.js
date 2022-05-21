@@ -91,13 +91,14 @@ function getSocial() {
       var youtube =
         data.result[0].other_social_profiles.youtube.youtube_channel_name;
       var tiktok = data.result[0].unique_id;
+      var tikTokID = tiktok.substring(0);
       var fanCount = data.result[0].follower_count;
       var avatar = data.result[0].avatar_larger;
 
       localStorage.setItem("instagram", instagram);
       localStorage.setItem("twitter", twitter);
       localStorage.setItem("youtube", youtube);
-      localStorage.setItem("tiktok", tiktok);
+      localStorage.setItem("tiktok", tikTokID);
       localStorage.setItem("fanCount", fanCount);
       localStorage.setItem("avatar", avatar);
       addSocialButtons();
@@ -108,7 +109,7 @@ function addSocialButtons() {
   var instagram = localStorage.getItem("instagram");
   var twitter = localStorage.getItem("twitter");
   var youtube = localStorage.getItem("youtube");
-  var tiktok = localStorage.getItem("tiktok");
+  var tikTokID = localStorage.getItem("tiktok");
   var fanCount = localStorage.getItem("fanCount");
   var artistName = localStorage.getItem("artist-name");
   var avatar = localStorage.getItem("avatar");
@@ -140,8 +141,8 @@ function addSocialButtons() {
 
   //This is the social link for the artists tiktok//
 
-  if (tiktok !== null) {
-    $("#socialTikTok").attr("href", "https://tiktok.com/" + tiktok);
+  if (tikTokID !== null) {
+    $("#socialTikTok").attr("href", "https://tiktok.com/" + tikTokID);
   } else {
     $("#socialTwit").attr("href", "https://tiktok.com/" + artistName);
   }
