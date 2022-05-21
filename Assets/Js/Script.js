@@ -20,6 +20,8 @@ $("#searchBtn").on("click", function () {
   getSeatGeek();
 });
 
+// Fetches Spotify Data//
+
 function getArtist() {
   var artistName = localStorage.getItem("artist-name");
   console.log(artistName);
@@ -57,6 +59,8 @@ function addId() {
     "https://open.spotify.com/embed/artist/" + uri + "?utm_source=generator"
   );
 }
+
+// Fetches Social Media Data//
 
 function getSocial() {
   var artistName = localStorage.getItem("artist-name");
@@ -99,7 +103,7 @@ function getSocial() {
       addSocialButtons();
     });
 }
-
+//appends social media data from fans and artists to the Dom//
 function addSocialButtons() {
   var instagram = localStorage.getItem("instagram");
   var twitter = localStorage.getItem("twitter");
@@ -144,7 +148,7 @@ function addSocialButtons() {
 }
 
 // ONLY EDIT BELOW THIS LINE//
-
+//This is the SEATGEEK API that fetches ticketing data//
 function getSeatGeek() {
   var artistName = localStorage.getItem("artist-name");
 
@@ -165,16 +169,18 @@ function getSeatGeek() {
         $("#artistEvents").append(eventList);
 
         var eventListItem = $("<li>");
-        eventListItem.append(events[i].title);
+        eventListItem.append(events[i].title + "</br>");
 
-        if (events[i].data_tbd === false) {
-          var dateTime = data.events[i].datetime_local;
-          dateTime = dateTime.split("T").join(" ");
-          var format = "YYYY/MM/DD hh:mm:ss";
-          var convertedDateTime = moment(dateTime, format);
-          eventListItem.append(
-            convertedDateTime.format("MM/DD/YY hh:mm A") + "</br>"
-          );
+        var dateTime = data.events[i].datetime_local;
+        var dateTimeSplit = dateTime.split("T").join(" ");
+
+        var convertedDateTime = moment(
+          dateTimeSplit,
+          "YYYY/MM/DD hh:mm:ss"
+        ).format("LLL");
+
+        if (events[i].datetime_local !== null) {
+          eventListItem.append(convertedDateTime + "</br>");
         } else {
           eventListItem.append("Date and Time TBD");
         }
@@ -196,82 +202,3 @@ function getSeatGeek() {
       }
     });
 }
-
-// function getLocation() {
-//   var lat;
-//   var lon;
-//   function showPosition(pos) {
-//     var crd = pos.coords;
-//     lat = crd.latitude;
-//     lon = crd.longitude;
-//     localStorage.setItem("lat", lat);
-//     localStorage.setItem("lon", lon);
-//     console.log(crd);
-//   }
-//   navigator.geolocation.getCurrentPosition(showPosition);
-
-// }
-// var options = {
-//   method: "GET",
-//   headers: {
-//     Accept: "application/json",
-//     Authorization: "NjA3NjEwfDE2NTMwMTA4ODMuODU1MzQwMg",
-//   },
-
-// function getBrainz() {
-//   var artistName = localStorage.getItem("artist-name");
-//   var lat = localStorage.getItem("lat", lat);
-//   var lon = localStorage.getItem("lon", lon);
-//   var options = {
-//     method: "GET",
-//     headers: {
-//     "Accept": "application/json",
-//     "Authorization": "Bearer 39ZknzasXO5GhLiw0Un7yPVHLYhnLPMMOzpNQZn3",
-//   }};
-//   console.log(options);
-//   fetch(
-//     "https://api.predicthq.com/v1/events/?q=" +
-//       artistName +
-//       "&location_around.offset=50mi&limit=10&location_around.origin=" +
-//       lat +
-//       "%2C" +
-//       lon, options,
-//   )
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (geo) {
-//       var date = geo.results[0].start;
-//       var venue = geo.results[0].entities[0].name;
-//       var artist = geo.
-//       console.log(geo);
-//     });
-
-// }
-
-// var instagram = data.result[0].other_social_profiles.instagram_username;
-// var twitter =
-//   data.result[0].other_social_profiles.twitter.twitter_username;
-// var youtube =
-//   data.result[0].other_social_profiles.youtube.youtube_channel_name;
-// var tiktok = data.result[0].unique_id;
-// var fanCount = data.result[0].follower_count;
-
-// localStorage.setItem("instagram", instagram);
-// localStorage.setItem("twitter", twitter);
-// localStorage.setItem("youtube", youtube);
-// localStorage.setItem("tiktok", tiktok);
-// localStorage.setItem("fanCount", fanCount);
-//       localStorage.setItem("avatar", avatar)
-//     });
-//   addSocialButtons();
-//   }
-
-// function addSocialButtons() {
-// var instagram = localStorage.getItem("instagram");
-// var twitter = localStorage.getItem("twitter");
-// var youtube = localStorage.getItem("youtube");
-// var tiktok = localStorage.getItem("tiktok");
-// var fanCount = localStorage.getItem("fanCount");
-// var artistName = localStorage.getItem("artist-name");
-// var avatar = localStorage.getItem("avatar")
